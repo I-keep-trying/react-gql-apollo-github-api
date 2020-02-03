@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
-import { Query } from 'react-apollo'
+import { Query, ApolloConsumer } from 'react-apollo'
+import { withState } from 'recompose'
 import GET_ISSUES_OF_REPOSITORY from '../Queries/GetIssues'
 import IssueItem from './IssueItem'
 import Loading from '../utilities/Loading'
 import ErrorMessage from '../utilities/Error'
+import FetchMore from '../utilities/FetchMore'
 import { ButtonUnobtrusive } from '../Components/Button'
 
 const ISSUE_STATES = {

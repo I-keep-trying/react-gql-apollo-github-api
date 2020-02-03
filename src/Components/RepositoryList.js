@@ -4,26 +4,6 @@ import FetchMore from '../utilities/FetchMore'
 import Issues from './IssueList1'
 import '../style.css'
 
-/* const updateQuery = (previousResult, { fetchMoreResult }) => {
-  if (!fetchMoreResult) {
-    return previousResult
-  }
-  return {
-    ...previousResult,
-    viewer: {
-      ...previousResult.viewer,
-      repositories: {
-        ...previousResult.viewer.repositories,
-        ...fetchMoreResult.viewer.repositories,
-        edges: [
-          ...previousResult.viewer.repositories.edges,
-          ...fetchMoreResult.viewer.repositories.edges,
-        ],
-      },
-    },
-  }
-} 
-*/
 
 const getUpdateQuery = entry => (previousResult, { fetchMoreResult }) => {
   if (!fetchMoreResult) {
@@ -50,7 +30,10 @@ const RepositoryList = ({ repositories, loading, fetchMore, entry }) => (
     {repositories.edges.map(({ node }) => (
       <div key={node.id} className="RepositoryItem">
         <RepositoryItem {...node} />
-        <Issues repositoryName={node.name} repositoryOwner={node.owner.login} />
+        <Issues 
+        repositoryName={node.name} 
+        repositoryOwner={node.owner.login} />
+
       </div>
     ))}
     <FetchMore

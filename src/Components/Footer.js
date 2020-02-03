@@ -2,7 +2,6 @@ import React from 'react';
 
 import Link from './Link';
 
-import './style.css';
 
 const Footer = () => (
   <div className="Footer">
@@ -11,11 +10,11 @@ const Footer = () => (
         <span className="Footer-text">Built by</span>{' '}
         <Link
           className="Footer-link"
-          href="https://www.robinwieruch.de"
+          href="https://github.com/I-keep-trying"
         >
-          Robin Wieruch
+          Andrea Crego
         </Link>{' '}
-        <span className="Footer-text">with &hearts;</span>
+        <span className="Footer-text">with 💕</span>
       </small>
     </div>
     <div>

@@ -19,5 +19,8 @@ yarn-error.log*
 
 issues-query.json
 issues.json
+issues1.json
 mutationResponse.json
 repositoryData.json
+comments.json
+

@@ -1,9 +1,19 @@
 import gql from 'graphql-tag'
 
 const GET_ISSUES_OF_REPOSITORY = gql`
-  query($repositoryOwner: String!, $repositoryName: String!) {
+  query(
+    $repositoryOwner: String!
+    $repositoryName: String!
+    $issueState: IssueState!
+    $cursor: String
+  ) {
     repository(name: $repositoryName, owner: $repositoryOwner) {
-      issues(first: 10, orderBy:{field: CREATED_AT, direction: DESC } ) {
+      issues(
+        first: 10
+        states: [$issueState]
+        after: $cursor
+        orderBy: { field: CREATED_AT, direction: DESC }
+      ) {
         edges {
           node {
             id
@@ -13,6 +23,10 @@ const GET_ISSUES_OF_REPOSITORY = gql`
             url
             bodyHTML
           }
+        }
+        pageInfo {
+          endCursor
+          hasNextPage
         }
       }
     }
